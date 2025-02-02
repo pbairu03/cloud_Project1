@@ -2,10 +2,10 @@ const sql = require('mssql');
 
 module.exports = async function (context, req) {
     const config = {
-        user: process.env.SQL_USER,
-        password: process.env.SQL_PASSWORD,
-        server: process.env.SQL_SERVER,
-        database: process.env.SQL_DATABASE,
+        user: process.env.bairupa,
+        password: process.env.!Pra3012#,
+        server: process.env.pbairu-server.database.windows.net,
+        database: process.env.studentdata,
         options: { encrypt: true }
     };
 
