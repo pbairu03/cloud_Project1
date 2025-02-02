@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two Column Layout</title>
-    <style>
-        .container {
-            display: flex;
-        }
-        .column {
-            flex: 1;
-            padding: 20px;
-            border: 1px solid black;
-        }
-    </style>
+<title>Student Count by Country</title>
 </head>
 <body>
-    <h1>INTRO TO CLOUD COMPUTING PROJECT 1 </h1>
-    <h2>STUDENT COUNT BY COUNTRY</h2>
-    <div class="container">
-        <div class="column">COUNTRY</div>
-        <div class="column">STUDENT COUNT</div>
-    </div>
+<h1>Student Count by Country</h1>
+<table id="studentTable">
+<thead>
+<tr><th>Country</th><th>Student Count</th></tr>
+</thead>
+<tbody></tbody>
+</table>
+<script>
+async function fetchStudentData() {
+const response = await fetch('https://your-api-endpoint');
+const data = await response.json();
+const tableBody = document.querySelector('#studentTable tbody');
+tableBody.innerHTML = data.map(row =>
+`<tr><td>${row.Country}</td><td>${row.StudentCount}</td></tr>`).join('');
+}
+fetchStudentData();
+</script>
 </body>
 </html>
