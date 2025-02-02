@@ -5,21 +5,39 @@
 </head>
 <body>
     <h1>Student Count by Country</h1>
-    <table id="studentTable">
+    <table id="studentTable" border="1">
         <thead>
-            <tr><th>Country</th><th>Student Count</th></tr>
+            <tr>
+                <th>Country</th>
+                <th>Student Count</th>
+            </tr>
         </thead>
-        <tbody></tbody>
+        <tbody id="tableBody">
+            <!-- Data will be inserted here -->
+        </tbody>
     </table>
+
     <script>
         async function fetchStudentData() {
-            const response = await fetch('https://your-azure-function-url/api/getStudentCount');
-            const data = await response.json();
-            const tableBody = document.querySelector('#studentTable tbody');
-            tableBody.innerHTML = data.map(row =>
-                `<tr><td>${row.Country}</td><td>${row.StudentCount}</td></tr>`).join('');
+            try {
+                const response = await fetch('YOUR_AZURE_FUNCTION_URL'); // Replace with your function URL
+                const data = await response.json();
+
+                const tableBody = document.getElementById('tableBody');
+                tableBody.innerHTML = ''; // Clear existing data
+
+                data.forEach(row => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td>${row.Country}</td><td>${row.StudentCount}</td>`;
+                    tableBody.appendChild(tr);
+                });
+            } catch (error) {
+                console.error('Error fetching student data:', error);
+            }
         }
-        fetchStudentData();
+
+        // Fetch data when the page loads
+        window.onload = fetchStudentData;
     </script>
 </body>
 </html>
