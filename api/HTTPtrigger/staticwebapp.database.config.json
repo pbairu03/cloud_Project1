@@ -1,0 +1,7 @@
+{
+  "databaseConnections": {
+    "pbairu-database": {
+      "connectionStringSetting": "AZURE_SQL_CONNECTION_STRING"
+    }
+  }
+}
