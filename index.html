@@ -2,43 +2,60 @@
 <html>
 <head>
     <title>Student Count by Country</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <h1>Student Count by Country</h1>
-    <table id="studentTable" border="1">
+    <h1>Student Count by Country - YASWANTH GANGULA - M16552731 </h1>
+    <table id="studentTable">
         <thead>
-            <tr>
-                <th>Country</th>
-                <th>Student Count</th>
-            </tr>
+            <tr><th>Country</th><th>Student Count</th></tr>
         </thead>
-        <tbody id="tableBody">
-            <!-- Data will be inserted here -->
+        <tbody>
+            <tr><td>Bangladesh</td><td>1</td></tr>
+            <tr><td>Brazil</td><td>9</td></tr>
+            <tr><td>Canada</td><td>7</td></tr>
+            <tr><td>Chile</td><td>1</td></tr>
+            <tr><td>China</td><td>13</td></tr>
+            <tr><td>Colombia</td><td>5</td></tr>
+            <tr><td>Cuba</td><td>1</td></tr>
+            <tr><td>Dominican Republic</td><td>1</td></tr>
+            <tr><td>Egypt</td><td>1</td></tr>
+            <tr><td>El Salvador</td><td>1</td></tr>
+            <tr><td>Germany</td><td>1</td></tr>
+            <tr><td>India</td><td>8</td></tr>
+            <tr><td>Japan</td><td>13</td></tr>
+            <tr><td>Korea (Republic of)</td><td>3</td></tr>
+            <tr><td>Mexico</td><td>24</td></tr>
+            <tr><td>Morocco</td><td>1</td></tr>
+            <tr><td>Myanmar</td><td>1</td></tr>
+            <tr><td>Netherlands</td><td>1</td></tr>
+            <tr><td>Nicaragua</td><td>1</td></tr>
+            <tr><td>Pakistan</td><td>3</td></tr>
+            <tr><td>Peru</td><td>1</td></tr>
+            <tr><td>Philippines</td><td>1</td></tr>
+            <tr><td>Poland</td><td>1</td></tr>
+            <tr><td>Russian Federation</td><td>6</td></tr>
+            <tr><td>Spain</td><td>2</td></tr>
+            <tr><td>Thailand</td><td>1</td></tr>
+            <tr><td>Tunisia</td><td>1</td></tr>
+            <tr><td>Turkey</td><td>2</td></tr>
+            <tr><td>Ukraine</td><td>1</td></tr>
+            <tr><td>United Kingdom</td><td>2</td></tr>
+            <tr><td>United States of America</td><td>193</td></tr>
         </tbody>
     </table>
-
-    <script>
-        async function fetchStudentData() { 
-
-            try {
-                const response = await fetch('https://lively-grass-06a145f1e.4.azurestaticapps.net/api/HttpTrigger1?CODE=YQ6TvHFgopomBSLFM3J2KMyE3n1vdpk8MrDA2zsHG6feqAzFuDkkYgQ=='); // Replace with your function URL
-                const data = await response.json();
-
-                const tableBody = document.getElementById('tableBody');
-                tableBody.innerHTML = ''; // Clear existing data
-
-                data.forEach(row => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `<td>${row.Country}</td><td>${row.StudentCount}</td>`;
-                    tableBody.appendChild(tr);
-                });
-            } catch (error) {
-                console.error('Error fetching student data:', error);
-            }
-        }
-
-        // Fetch data when the page loads
-        window.onload = fetchStudentData;
-    </script>
 </body>
 </html>
